@@ -1,5 +1,7 @@
 //Struct vs Class
 
+// struct = copias, tienen su propio espacio de memoria class = referencias, apuntan a un espacio de memoria
+
 struct Resolution {
     //propiedades
     var width = 0
