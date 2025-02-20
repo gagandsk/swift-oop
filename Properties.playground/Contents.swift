@@ -58,3 +58,17 @@ var square = Rect(origin: Point(x: 0, y: 0), size: Size(width: 10, height: 10))
 let initialSquareCenter = square.center
 square.center = Point(x: 18, y: 4)
 print(square.center)
+
+struct Cuboid {
+    var width = 0.0, height = 0.0, depth = 0.0
+    
+    //Computed Properties de sólo lectura
+    var volume: Double {
+        return width * height * depth
+    }
+}
+
+let cuboid = Cuboid(width: 4.0, height: 5.0, depth: 2.0)
+cuboid.volume
+//cuboid.volume = 57.0
+
