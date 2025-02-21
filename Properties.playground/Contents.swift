@@ -89,4 +89,38 @@ class StepCounter {
 
 let stepCounter = StepCounter()
 stepCounter.totalSteps = 200
+stepCounter.totalSteps = 520
+stepCounter.totalSteps += 1234
 
+struct SomeStruct {
+    var counter = 0
+    static let storedTypeProperty = "SOME VALUE"
+    static var computedTypeProperty: Int {
+        return 1
+    }
+}
+
+var instanceStr = SomeStruct()
+var otherInstanceStr = SomeStruct()
+
+SomeStruct.computedTypeProperty
+
+enum SomeEnum {
+    static let storedTypeProperty = "someValue"
+    static var computedTypeProperty: Int {
+        return 5
+    }
+}
+
+SomeEnum.storedTypeProperty
+
+class SomeClass {
+    static let storedTypeProperty = "some Value"
+    static var computedTypeProperty: Int {
+        return -9
+    }
+    
+    class var overrideableComputedTypeProperty: Int {
+        return 108
+    }
+}
