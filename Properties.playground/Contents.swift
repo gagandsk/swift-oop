@@ -72,3 +72,21 @@ let cuboid = Cuboid(width: 4.0, height: 5.0, depth: 2.0)
 cuboid.volume
 //cuboid.volume = 57.0
 
+
+//willSet , didSet
+class StepCounter {
+    var totalSteps: Int = 0 {
+        willSet(newTotalSteps) {
+            print("Numero de pasos va a subir hasta \(newTotalSteps)")
+        }
+        didSet{
+            if totalSteps > oldValue {
+                print("El numero de pasos ha incrementado en \(totalSteps - oldValue)")
+            }
+        }
+    }
+}
+
+let stepCounter = StepCounter()
+stepCounter.totalSteps = 200
+
