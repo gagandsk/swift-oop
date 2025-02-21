@@ -58,6 +58,10 @@ class SurveyQuestion {
     }
 }
 
-let q1 = SurveyQuestion(text: "Pregunta ?")
+let q1 = SurveyQuestion(text: "Como te llamas?")
 q1.ask()
-q1.response = "Si"
+q1.response = "Gagan"
+
+let q2 = SurveyQuestion(text: "Cuántos años tienes?")
+q2.ask()
+q2.response = "25"
