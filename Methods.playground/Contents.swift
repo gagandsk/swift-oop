@@ -63,3 +63,62 @@ controllerStatis.next()
 controllerStatis.next()
 
 
+class SomeClass {
+    class func someMethod(){
+        print("Hola")
+    }
+}
+
+class SomeClass2 {
+    func someMethod(){
+        print("Hola someClass2")
+    }
+}
+
+SomeClass.someMethod()
+var someClass2 = SomeClass2()
+
+struct LevelTracker {
+    nonisolated(unsafe) static var highestUnlockedLevel = 1
+    var currentLevel = 1
+    
+    static func unlock(_ level: Int) {
+        if level > highestUnlockedLevel {
+            highestUnlockedLevel = level
+        }
+    }
+    
+    static func isUnlocked(_ level: Int) -> Bool {
+        return level <= highestUnlockedLevel
+    }
+    
+    mutating func advanced(to level: Int) -> Bool {
+        if LevelTracker.isUnlocked(level) {
+            currentLevel = level
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+class Player {
+    var tracker = LevelTracker()
+    let playerName: String
+    func complete(level: Int) {
+        LevelTracker.unlock(level + 1)
+        tracker.advanced(to: level + 1)
+    }
+    init(name: String) {
+        self.playerName = name
+    }
+}
+
+var player = Player(name: "Goku")
+player.complete(level: 1)
+
+if player.tracker.advanced(to: 7) {
+    print("Podemos avanzar hasta nivel 7")
+} else {
+    print("El nivel 7 sigue bloqueado por ahora")
+}
