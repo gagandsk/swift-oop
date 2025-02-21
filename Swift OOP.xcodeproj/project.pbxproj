@@ -10,12 +10,14 @@
 		0B61DCDE2D67827900E26993 /* Main.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Main.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0B61DCDF2D67895100E26993 /* Properties.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Properties.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0BF7B5D52D68A65400EDC6F8 /* Methods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Methods.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0BF7B5D62D68AE0C00EDC6F8 /* Subscripts.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Subscripts.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		0B61DCD62D677E9800E26993 = {
 			isa = PBXGroup;
 			children = (
+				0BF7B5D62D68AE0C00EDC6F8 /* Subscripts.playground */,
 				0BF7B5D52D68A65400EDC6F8 /* Methods.playground */,
 				0B61DCDF2D67895100E26993 /* Properties.playground */,
 				0B61DCDE2D67827900E26993 /* Main.playground */,
