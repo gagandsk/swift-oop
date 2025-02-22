@@ -110,3 +110,53 @@ class Hoverboard: Vehicle {
 
 let hoverboard = Hoverboard(color: "Silver")
 print(hoverboard.description)
+
+
+enum TemperatureUnit {
+    case kelvin, fahrenheit, celsius
+    
+    init?(symbol: Character) {
+        switch symbol {
+        case "K":
+            self = .kelvin
+        case "F":
+            self = .fahrenheit
+        case "C":
+            self = .celsius
+        default:
+            return nil
+        }
+    }
+}
+
+let someUnitK = TemperatureUnit(symbol: "K")
+let someUnitF = TemperatureUnit(symbol: "F")
+let someUnitC = TemperatureUnit(symbol: "C")
+let someUnitX = TemperatureUnit(symbol: "X")
+
+
+class Product{
+    let name: String
+    //indicamos un '?' porque en este caso, el 'name' nos puede devolver un nulo (nil en swift)
+    init?(name: String) {
+        if name.isEmpty {
+            return nil
+        }
+        self.name = name
+    }
+}
+
+class CartItem: Product {
+    let quantity: Int
+    init?(name: String, quantity: Int) {
+        if quantity < 1 {
+            return nil
+        }
+        self.quantity = quantity
+        super.init(name: name)
+    }
+}
+
+if let someSocks = CartItem(name: "Socks", quantity: 2){
+    print("\(someSocks.name): \(someSocks.quantity)")
+}
