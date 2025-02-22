@@ -96,3 +96,21 @@ if let firstRoomName = edgar.residence?[0].name {
 }else{
     print("La primera habitación no sabemos de quien es")
 }
+
+edgar.residence?.address = createAddress()
+
+if let edgarStreet = edgar.residence?.address?.street{
+    print("La casa de edgar está en la calle \(edgarStreet)")
+} else {
+    print("No se donde vive edgar")
+}
+
+if let buildingIdentifier = edgar.residence?.address?.buildingIdentifier(){
+    print("Edgar vive en \(buildingIdentifier)")
+}
+
+if let _ = edgar.residence?.address?.buildingIdentifier()?.hasPrefix("10") {
+    print("Edgar vive en el número 10")
+} else{
+    print("edgar no vive en el número 10")
+}
