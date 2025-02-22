@@ -65,3 +65,48 @@ q1.response = "Gagan"
 let q2 = SurveyQuestion(text: "Cuántos años tienes?")
 q2.ask()
 q2.response = "25"
+
+
+//constructores
+
+//Designado -> Designado super clase
+//Conveniencia -> Otro init de la misma clase
+//El último init que se llame siempre debe ser designado
+
+
+class Vehicle {
+    var numerOfWheels = 0
+    var description: String {
+        return "Total ruedas: \(numerOfWheels)"
+    }
+}
+
+let vehicle = Vehicle()
+print(vehicle.description)
+
+class Bicycle: Vehicle {
+    //esto seria un inicializador 'Designado', porque estoy sobreescriviendo al del padre (Vehicle)
+    override init() {
+        //aqui estoy llamando al init del padre
+        super.init()
+        numerOfWheels = 2
+    }
+}
+
+let bicycle = Bicycle()
+print(bicycle.description)
+
+class Hoverboard: Vehicle {
+    var color: String
+    //inicializador de 'Conveniencia'
+    init(color: String) {
+        self.color = color
+        //aquí se llama implíticamente a super.init()
+    }
+    override var description: String{
+        return "\(super.description) en el color \(self.color)"
+    }
+}
+
+let hoverboard = Hoverboard(color: "Silver")
+print(hoverboard.description)
