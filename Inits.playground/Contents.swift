@@ -160,3 +160,36 @@ class CartItem: Product {
 if let someSocks = CartItem(name: "Socks", quantity: 2){
     print("\(someSocks.name): \(someSocks.quantity)")
 }
+
+
+//Desinicializador
+class Bank {
+    nonisolated(unsafe) static var coinsInBank = 2_000
+    static func distribute(coins numberOfCoinsRequested: Int) -> Int {
+        let numberOfCoinsToVend = min(numberOfCoinsRequested, coinsInBank)
+        coinsInBank -= numberOfCoinsToVend
+        return numberOfCoinsToVend
+    }
+    static func recieve(coins: Int) {
+        coinsInBank += coins
+    }
+}
+
+class Player {
+    var coinsInPurse: Int
+    init(coins: Int) {
+        self.coinsInPurse = Bank.distribute(coins: coins)
+    }
+    func win(coins: Int) {
+        coinsInPurse += Bank.distribute(coins: coins)
+    }
+    deinit{
+        Bank.recieve(coins: coinsInPurse)
+    }
+}
+
+var playerOne: Player? = Player(coins: 100)
+Bank.coinsInBank
+playerOne!.win(coins: 2_000)
+playerOne = nil
+
